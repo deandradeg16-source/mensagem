@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>O Fundamento do Nosso Amor | Khaunane & Guilherme</title>
+  <meta
+    name="description"
+    content="Uma mensagem especial sobre o amor que sustenta a nossa história: Jesus Cristo."
+  />
+  <meta name="theme-color" content="#071f46" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <noscript>
+    <div class="noscript">
+      Ative o JavaScript para visualizar esta experiência.
+    </div>
+  </noscript>
+
+  <!--
+    IMPORTANTE:
+    Coloque um arquivo de áudio licenciado em:
+    assets/musica.mp3
+
+    O navegador não permite iniciar música automaticamente sem interação.
+    Por isso, ela começa em volume baixo após o clique em "Começar".
+  -->
+  <audio id="backgroundMusic" loop preload="metadata">
+    <source src="assets/musica.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="experience" id="experience">
+    <div class="background-decoration" aria-hidden="true">
+      <div class="glow glow-one"></div>
+      <div class="glow glow-two"></div>
+      <div class="grain"></div>
+    </div>
+
+    <header class="experience-header">
+      <div class="monogram">K&amp;G</div>
+
+      <div class="header-actions">
+        <button
+          class="icon-button"
+          id="musicButton"
+          type="button"
+          aria-label="Ativar música"
+          title="Ativar ou pausar música"
+        >
+          <span class="music-bars" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <div class="progress" aria-hidden="true">
+      <span id="progressBar"></span>
+    </div>
+
+    <main class="slides" id="slides">
+
+      <!-- 1 -->
+      <section class="slide active" data-theme="navy">
+        <div class="slide-content hero-content">
+          <p class="eyebrow">Khaunane &amp; Guilherme</p>
+
+          <h1>
+            O fundamento<br />
+            <em>do nosso amor</em>
+          </h1>
+
+          <div class="ornament"><span></span><i>✦</i><span></span></div>
+
+          <p class="intro-text">
+            Uma mensagem preparada com carinho para você.
+          </p>
+
+          <button class="primary-button next-button start-button" type="button">
+            Começar
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="step-label">Antes de tudo</p>
+
+          <p class="large-copy">
+            Se você está lendo esta mensagem, provavelmente esteve presente em
+            um dos dias mais importantes da nossa vida.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="large-copy">
+            Somos muito gratos por compartilhar esse momento com você.
+          </p>
+
+          <p class="secondary-copy">
+            Mas existe algo que queremos dividir que é ainda mais importante
+            do que o nosso casamento.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content narrow">
+          <p class="large-copy light">
+            Porque acreditamos que a razão pela qual chegamos até aqui não está
+            apenas no amor que sentimos um pelo outro.
+          </p>
+
+          <p class="gold-copy">
+            Está no amor que Deus demonstrou por nós.
+          </p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content">
+          <p class="step-label">Nosso fundamento</p>
+
+          <h2>
+            O amor que<br />
+            <em>nos uniu</em>
+          </h2>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="large-copy">
+            Nenhum casamento é sustentado apenas por sentimentos.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content centered-lines">
+          <p>Sentimentos mudam.</p>
+          <p>Circunstâncias mudam.</p>
+          <p>As pessoas mudam.</p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="large-copy">
+            Por isso decidimos construir nosso relacionamento sobre um
+            fundamento que não muda.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content christ-slide">
+          <div class="cross-symbol" aria-hidden="true"></div>
+
+          <h2 class="christ-title">Jesus Cristo.</h2>
+
+          <p class="secondary-copy light">
+            Foi nele que aprendemos o que significa amar, perdoar, servir e
+            permanecer.
+          </p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content">
+          <p class="step-label">A maior história de amor</p>
+
+          <h2>
+            Existe um Amor<br />
+            <em>ainda maior</em>
+          </h2>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="large-copy">
+            O amor que vivemos é imperfeito.
+          </p>
+
+          <p class="gold-copy dark-gold">
+            Mas ele aponta para um Amor perfeito.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content narrow">
+          <p class="large-copy light">
+            Há cerca de dois mil anos, Deus demonstrou esse amor ao enviar
+            Jesus Cristo para morrer na cruz pelos nossos pecados.
+          </p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 13 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content narrow">
+          <p class="large-copy light">
+            Jesus não morreu apenas por pessoas boas.
+          </p>
+
+          <p class="gold-copy">
+            Ele morreu por pecadores como nós.
+          </p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 14 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content narrow">
+          <p class="large-copy light">
+            Ressuscitou ao terceiro dia e hoje oferece perdão, reconciliação
+            com Deus e vida eterna a todos os que creem nele.
+          </p>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 15 -->
+      <section class="slide verse-slide" data-theme="cream">
+        <div class="slide-content verse-content">
+          <p class="step-label">João 3:16</p>
+
+          <blockquote>
+            “Porque Deus amou o mundo de tal maneira que deu o seu Filho
+            unigênito, para que todo aquele que nele crê não pereça, mas tenha
+            a vida eterna.”
+          </blockquote>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 16 -->
+      <section class="slide verse-slide" data-theme="navy">
+        <div class="slide-content verse-content">
+          <p class="step-label gold">Romanos 5:8</p>
+
+          <blockquote class="light">
+            “Mas Deus prova o seu próprio amor para conosco pelo fato de Cristo
+            ter morrido por nós, sendo nós ainda pecadores.”
+          </blockquote>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 17 -->
+      <section class="slide verse-slide" data-theme="cream">
+        <div class="slide-content verse-content">
+          <p class="step-label">Efésios 2:8–9</p>
+
+          <blockquote>
+            “Porque pela graça sois salvos, mediante a fé; e isto não vem de
+            vós, é dom de Deus; não de obras, para que ninguém se glorie.”
+          </blockquote>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 18 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content">
+          <p class="step-label">Do nosso coração</p>
+
+          <h2>
+            Nosso desejo<br />
+            <em>para você</em>
+          </h2>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 19 -->
+      <section class="slide" data-theme="cream">
+        <div class="slide-content narrow">
+          <p class="large-copy">
+            Mais do que desejar felicidade para o nosso casamento...
+          </p>
+
+          <p class="secondary-copy">
+            Nós desejamos que você experimente o mesmo amor que transformou a
+            nossa vida.
+          </p>
+
+          <button class="text-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 20 -->
+      <section class="slide" data-theme="navy">
+        <div class="slide-content narrow">
+          <p class="secondary-copy light">
+            Se um dia alguém nos perguntar qual foi o maior presente que demos
+            aos nossos convidados, gostaríamos que a resposta fosse:
+          </p>
+
+          <blockquote class="final-quote">
+            “Eles nos apontaram para Cristo.”
+          </blockquote>
+
+          <button class="text-button light-button next-button" type="button">
+            Continuar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 21 -->
+      <section class="slide prayer-slide" data-theme="navy">
+        <div class="slide-content prayer-content">
+          <p class="step-label gold">Uma oração especial</p>
+
+          <h2 class="light-title">
+            Nossa oração<br />
+            <em>por você</em>
+          </h2>
+
+          <div class="prayer">
+            <p><strong>Senhor,</strong></p>
+
+            <p>
+              Obrigado por cada pessoa que esteve conosco neste dia tão
+              especial.
+            </p>
+
+            <p>
+              Se alguém que está lendo esta mensagem ainda não conhece o teu
+              amor, pedimos que o Espírito Santo ilumine seu coração para
+              compreender a grandeza do Evangelho e encontrar em Cristo o
+              perdão, a esperança e a verdadeira vida.
+            </p>
+
+            <p>
+              Que o mesmo Deus que tem sustentado o nosso relacionamento também
+              conduza cada passo da vida dessa pessoa.
+            </p>
+
+            <p>Em nome de Jesus.</p>
+
+            <p class="amen">Amém.</p>
+          </div>
+
+          <button class="text-button light-button next-button" type="button">
+            Finalizar <span>→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 22 -->
+      <section class="slide final-slide" data-theme="navy">
+        <div class="slide-content">
+          <div class="cross-symbol small" aria-hidden="true"></div>
+
+          <p class="eyebrow">Obrigado por chegar até aqui</p>
+
+          <h2 class="light-title">
+            Que Cristo seja<br />
+            <em>o seu fundamento.</em>
+          </h2>
+
+          <p class="signature">Khaunane &amp; Guilherme</p>
+          <p class="date">24.10.2026</p>
+
+          <button class="secondary-button" id="restartButton" type="button">
+            Ver novamente
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="experience-footer">
+      <button
+        class="back-button"
+        id="backButton"
+        type="button"
+        aria-label="Voltar para a tela anterior"
+      >
+        ← Voltar
+      </button>
+
+      <span id="slideCounter" aria-live="polite">1 / 22</span>
+    </footer>
+  </div>
+
+  <div class="music-notice" id="musicNotice" role="status">
+    Para ouvir a música, adicione o arquivo
+    <strong>assets/musica.mp3</strong>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
