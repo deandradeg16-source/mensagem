@@ -13,172 +13,188 @@ let currentSlide = 0;
 let isTransitioning = false;
 let musicStarted = false;
 
-music.volume = 0.12;
+if (music) {
+    music.volume = 0.12;
+}
 
+// Atualiza barra de progresso
 function updateInterface() {
-  const progress = ((currentSlide + 1) / slides.length) * 100;
 
-  progressBar.style.width = `${progress}%`;
-  slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    if (progressBar) {
+        progressBar.style.width =
+            ((currentSlide + 1) / slides.length) * 100 + "%";
+    }
 
-  backButton.classList.toggle("visible", currentSlide > 0);
+    if (slideCounter) {
+        slideCounter.innerText =
+            `${currentSlide + 1} / ${slides.length}`;
+    }
 
-  const theme = slides[currentSlide].dataset.theme;
-  const isCream = theme === "cream";
-
-  document.querySelector(".experience-header").style.color =
-    isCream ? "#071f46" : "#ffffff";
-
-  document.querySelector(".experience-footer").style.color =
-    isCream ? "rgba(7, 31, 70, 0.55)" : "rgba(255, 255, 255, 0.65)";
-
-  musicButton.style.borderColor =
-    isCream ? "rgba(7, 31, 70, 0.18)" : "rgba(255, 255, 255, 0.2)";
-
-  document.querySelector(".monogram").style.color =
-    isCream ? "#c7952d" : "#e2bd70";
+    if (backButton) {
+        if (currentSlide > 0) {
+            backButton.classList.add("visible");
+        } else {
+            backButton.classList.remove("visible");
+        }
+    }
 }
 
-function showSlide(nextIndex, direction = 1) {
-  if (
-    isTransitioning ||
-    nextIndex < 0 ||
-    nextIndex >= slides.length ||
-    nextIndex === currentSlide
-  ) {
-    return;
-  }
+// Troca de tela
+function showSlide(index) {
 
-  isTransitioning = true;
+    if (isTransitioning) return;
 
-  const current = slides[currentSlide];
-  const next = slides[nextIndex];
+    if (index < 0 || index >= slides.length) return;
 
-  current.classList.add("leaving");
+    isTransitioning = true;
 
-  next.style.transform =
-    direction > 0 ? "translateY(24px) scale(1.02)" : "translateY(-24px) scale(1.02)";
+    slides[currentSlide].classList.remove("active");
 
-  requestAnimationFrame(() => {
-    next.classList.add("active");
+    slides[index].classList.add("active");
 
-    requestAnimationFrame(() => {
-      next.style.transform = "";
-    });
-  });
+    currentSlide = index;
 
-  window.setTimeout(() => {
-    current.classList.remove("active", "leaving");
-    currentSlide = nextIndex;
     updateInterface();
-    isTransitioning = false;
-  }, 680);
+
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 500);
 }
 
-async function tryStartMusic() {
-  if (musicStarted) return;
+// Inicia música
+async function startMusic() {
 
-  try {
-    await music.play();
-    musicStarted = true;
-    musicButton.classList.add("playing");
-    musicButton.setAttribute("aria-label", "Pausar música");
-  } catch (error) {
-    showMusicNotice();
-  }
-}
+    if (musicStarted) return;
 
-function showMusicNotice() {
-  musicNotice.classList.add("show");
+    if (!music) return;
 
-  window.setTimeout(() => {
-    musicNotice.classList.remove("show");
-  }, 4500);
-}
-
-nextButtons.forEach((button, index) => {
-  button.addEventListener("click", async () => {
-    if (index === 0) {
-      await tryStartMusic();
-    }
-
-    showSlide(currentSlide + 1, 1);
-  });
-});
-
-backButton.addEventListener("click", () => {
-  showSlide(currentSlide - 1, -1);
-});
-
-restartButton.addEventListener("click", () => {
-  showSlide(0, -1);
-});
-
-musicButton.addEventListener("click", async () => {
-  if (music.paused) {
     try {
-      await music.play();
-      musicStarted = true;
-      musicButton.classList.add("playing");
-      musicButton.setAttribute("aria-label", "Pausar música");
-    } catch (error) {
-      showMusicNotice();
-    }
-  } else {
-    music.pause();
-    musicButton.classList.remove("playing");
-    musicButton.setAttribute("aria-label", "Ativar música");
-  }
-});
 
-/*
-  Impede que a rolagem do mouse, trackpad ou gesto vertical
-  avance pelas telas. A navegação acontece somente pelos botões.
-*/
-window.addEventListener(
-  "wheel",
-  (event) => {
-    event.preventDefault();
-  },
-  { passive: false }
-);
+        await music.play();
 
-window.addEventListener(
-  "touchmove",
-  (event) => {
-    const content = event.target.closest(".slide-content");
+        musicStarted = true;
 
-    if (content && content.scrollHeight > content.clientHeight) {
-      return;
+        if (musicButton) {
+            musicButton.classList.add("playing");
+        }
+
+    } catch (e) {
+
+        console.log("Áudio bloqueado.");
+
+        if (musicNotice) {
+
+            musicNotice.classList.add("show");
+
+            setTimeout(() => {
+
+                musicNotice.classList.remove("show");
+
+            }, 4000);
+
+        }
+
     }
 
-    event.preventDefault();
-  },
-  { passive: false }
-);
+}
 
-/*
-  Teclado:
-  Enter ou seta para a direita = avançar
-  Seta para a esquerda = voltar
-*/
-window.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowRight" || event.key === "Enter") {
-    if (currentSlide < slides.length - 1) {
-      if (currentSlide === 0) {
-        tryStartMusic();
-      }
-      showSlide(currentSlide + 1, 1);
+// BOTÃO CONTINUAR
+nextButtons.forEach((button) => {
+
+    button.addEventListener("click", async function () {
+
+        if (currentSlide === 0) {
+            await startMusic();
+        }
+
+        showSlide(currentSlide + 1);
+
+    });
+
+});
+
+// BOTÃO VOLTAR
+if (backButton) {
+
+    backButton.addEventListener("click", function () {
+
+        showSlide(currentSlide - 1);
+
+    });
+
+}
+
+// REINICIAR
+if (restartButton) {
+
+    restartButton.addEventListener("click", function () {
+
+        showSlide(0);
+
+    });
+
+}
+
+// BOTÃO MÚSICA
+if (musicButton && music) {
+
+    musicButton.addEventListener("click", async function () {
+
+        if (music.paused) {
+
+            await music.play();
+
+            musicButton.classList.add("playing");
+
+        } else {
+
+            music.pause();
+
+            musicButton.classList.remove("playing");
+
+        }
+
+    });
+
+}
+
+// BLOQUEIA SCROLL
+window.addEventListener("wheel", function (e) {
+
+    e.preventDefault();
+
+}, { passive: false });
+
+window.addEventListener("touchmove", function (e) {
+
+    e.preventDefault();
+
+}, { passive: false });
+
+// TECLADO
+window.addEventListener("keydown", function (e) {
+
+    if (e.key === "ArrowRight" || e.key === "Enter") {
+
+        if (currentSlide < slides.length - 1) {
+
+            if (currentSlide === 0) {
+                startMusic();
+            }
+
+            showSlide(currentSlide + 1);
+
+        }
+
     }
-  }
 
-  if (event.key === "ArrowLeft") {
-    showSlide(currentSlide - 1, -1);
-  }
+    if (e.key === "ArrowLeft") {
+
+        showSlide(currentSlide - 1);
+
+    }
+
 });
 
-music.addEventListener("error", () => {
-  musicButton.classList.remove("playing");
-});
-
+// Inicialização
 updateInterface();
