@@ -745,3 +745,44 @@ h2 em {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================
+   CORREÇÃO DEFINITIVA DA ÁREA DE CLIQUE DOS BOTÕES
+   ========================================================== */
+.slide {
+  z-index: 1;
+}
+
+.slide.active {
+  z-index: 20;
+}
+
+.next-button,
+.primary-button,
+.text-button {
+  position: relative;
+  z-index: 50;
+  min-width: 180px;
+  min-height: 52px;
+  padding: 16px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.next-button::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+}
+
+.next-button span,
+.primary-button span,
+.text-button span {
+  pointer-events: none;
+}
